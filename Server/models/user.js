@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       {
          email: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                isEmail: {
                   msg: "Email input must be in email format"
@@ -33,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
          },
          password: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                len: {
                   args: [8],
@@ -49,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
          role: {
             type: DataTypes.ENUM("basic", "premium"),
             defaultValue: "basic",
+            allowNull: false,
             validate: {
                isIn: {
                   args: [["basic", "premium"]],
