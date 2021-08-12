@@ -5,9 +5,8 @@ const movieRoutes = require("./movieRoutes")
 const { authentification } = require("../middlewares/auth")
 
 router.use("/users", userRoutes)
+router.use("/movies", movieRoutes)
 
 router.use(authentification)
-
-router.use("/movies", movieRoutes)
 
 module.exports = router
