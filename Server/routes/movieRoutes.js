@@ -1,5 +1,7 @@
 const router = require("express").Router()
 
-router.get("/popular", movieController.popular)
+const movieControllers = require("../controllers/movieControllers")
+
+router.get("/popular", movieControllers.popular)
 
 module.exports = router
