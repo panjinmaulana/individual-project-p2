@@ -1,5 +1,6 @@
 const User = require("../models")
 const { comparePassword } = require("../helpers/bcrypt")
+const { generateToken } = require("../helpers/jwt")
 
 class UserController {
    static register(req, res, next) {
@@ -33,6 +34,11 @@ class UserController {
                   name: "Loginfailed"
                }
             }
+
+            const token = generateToken({
+               id: user.id,
+               email: user.email
+            })
 
             return res.status(200).json({
                id: user.id,
