@@ -48,6 +48,7 @@ module.exports = (sequelize, DataTypes) => {
          },
          role: {
             type: DataTypes.ENUM("basic", "premium"),
+            defaultValue: "basic",
             validate: {
                isIn: {
                   args: [["basic", "premium"]],
