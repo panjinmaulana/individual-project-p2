@@ -11,24 +11,6 @@ module.exports = {
          MovieId: {
             type: Sequelize.INTEGER
          },
-         posterUrl: {
-            type: Sequelize.STRING
-         },
-         title: {
-            type: Sequelize.STRING
-         },
-         overview: {
-            type: Sequelize.STRING
-         },
-         releaseDate: {
-            type: Sequelize.DATE
-         },
-         genre: {
-            type: Sequelize.STRING
-         },
-         rating: {
-            type: Sequelize.INTEGER
-         },
          UserId: {
             type: Sequelize.INTEGER,
             references: {

@@ -14,12 +14,6 @@ module.exports = (sequelize, DataTypes) => {
    FavoriteMovie.init(
       {
          MovieId: DataTypes.INTEGER,
-         posterUrl: DataTypes.STRING,
-         title: DataTypes.STRING,
-         overview: DataTypes.STRING,
-         releaseDate: DataTypes.DATE,
-         genre: DataTypes.STRING,
-         rating: DataTypes.INTEGER,
          UserId: DataTypes.INTEGER
       },
       {

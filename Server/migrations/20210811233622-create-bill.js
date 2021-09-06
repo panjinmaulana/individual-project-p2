@@ -8,20 +8,11 @@ module.exports = {
             primaryKey: true,
             type: Sequelize.INTEGER
          },
-         orderId: {
+         OrderId: {
             type: Sequelize.STRING
          },
-         purchaseDate: {
-            type: Sequelize.DATE
-         },
-         email: {
+         transaction_status: {
             type: Sequelize.STRING
-         },
-         transactionStatus: {
-            type: Sequelize.STRING
-         },
-         price: {
-            type: Sequelize.INTEGER
          },
          UserId: {
             type: Sequelize.INTEGER,

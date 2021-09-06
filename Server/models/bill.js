@@ -9,15 +9,13 @@ module.exports = (sequelize, DataTypes) => {
        */
       static associate(models) {
          // define association here
+         Bill.belongsTo(models.User, { foreignKey: "UserId" })
       }
    }
    Bill.init(
       {
-         orderId: DataTypes.STRING,
-         purchaseDate: DataTypes.DATE,
-         email: DataTypes.STRING,
-         transactionStatus: DataTypes.STRING,
-         price: DataTypes.INTEGER,
+         OrderId: DataTypes.STRING,
+         transaction_status: DataTypes.STRING,
          UserId: DataTypes.INTEGER
       },
       {

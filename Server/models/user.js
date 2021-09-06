@@ -17,6 +17,8 @@ module.exports = (sequelize, DataTypes) => {
    }
    User.init(
       {
+         first_name: DataTypes.INTEGER,
+         last_name: DataTypes.INTEGER,
          email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -49,14 +51,10 @@ module.exports = (sequelize, DataTypes) => {
             }
          },
          role: {
-            type: DataTypes.ENUM("basic", "premium"),
+            type: DataTypes.STRING,
             defaultValue: "basic",
             allowNull: false,
             validate: {
-               isIn: {
-                  args: [["basic", "premium"]],
-                  msg: "Role input must be basic or premium"
-               },
                notNull: {
                   msg: "Role input cannot be null"
                },

@@ -43,9 +43,18 @@ class UserController {
             return res.status(200).json({
                id: user.id,
                email: user.email,
+               role: user.role,
                access_token: token
             })
          })
+         .catch((err) => next(err))
+   }
+
+   static getNewRoleUser(req, res, next) {
+      User.findByPk(req.headers.id)
+         .then((user) =>
+            res.status(200).json({ email: user.email, role: user.role })
+         )
          .catch((err) => next(err))
    }
 }
