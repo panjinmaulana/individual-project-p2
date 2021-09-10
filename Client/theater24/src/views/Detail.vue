@@ -106,7 +106,7 @@
 <script>
 import axios from "axios"
 
-const baseURL = "http://localhost:3000"
+const baseURL = "https://theater24.herokuapp.com"
 
 const TMDB_URL = "https://api.themoviedb.org/3"
 const TMDB_TOKEN = process.env.VUE_APP_TMDB_TOKEN

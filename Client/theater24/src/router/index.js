@@ -34,6 +34,12 @@ const routes = [
       ]
    },
    {
+      path: "/search",
+      name: "Search",
+      component: () =>
+         import(/* webpackChunkName: "about" */ "../views/Search.vue")
+   },
+   {
       path: "/detail/:id",
       name: "DetailMovie",
       component: () =>
@@ -62,6 +68,12 @@ const routes = [
       name: "ErrorBill",
       component: () =>
          import(/* webpackChunkName: "about" */ "../views/ErrorBill.vue")
+   },
+   {
+      path: "*",
+      name: "NotFound",
+      component: () =>
+         import(/* webpackChunkName: "about" */ "../views/NotFound.vue")
    }
 ]
 
@@ -72,7 +84,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-   if (to.name === "Detail" && !localStorage.getItem("access_token")) {
+   if (
+      (to.name === "DetailMovie" && !localStorage.getItem("access_token")) ||
+      (to.name === "Search" && !localStorage.getItem("access_token"))
+   ) {
       next()
    } else if (
       to.name !== "Dashboard" &&

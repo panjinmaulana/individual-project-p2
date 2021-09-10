@@ -42,7 +42,7 @@
 <script>
 import axios from "axios"
 
-const baseURL = "http://localhost:3000"
+const baseURL = "https://theater24.herokuapp.com"
 
 export default {
    name: "PlayMovie",

@@ -2,7 +2,16 @@
    <div class="container text-center">
       <div class="row">
          <div class="col">
-            <h2>My Favorite Movie</h2>
+            <h2>My Favorite Movies</h2>
+         </div>
+      </div>
+      <div class="d-flex justify-content-center">
+         <div
+            class="spinner-border m-5"
+            role="status"
+            :style="{ display: activeDisplay }"
+         >
+            <span class="visually-hidden">Loading...</span>
          </div>
       </div>
       <div class="row justify-content-center">
@@ -29,7 +38,7 @@
 <script>
 import axios from "axios"
 
-const baseURL = "http://localhost:3000"
+const baseURL = "https://theater24.herokuapp.com"
 
 const TMDB_URL = "https://api.themoviedb.org/3"
 const TMDB_TOKEN = process.env.VUE_APP_TMDB_TOKEN
@@ -38,7 +47,8 @@ export default {
    name: "MyFavoriteMovie",
    data() {
       return {
-         favMovies: []
+         favMovies: [],
+         activeDisplay: "block"
       }
    },
    methods: {
@@ -60,7 +70,10 @@ export default {
                      }
                   })
                      .then(({ data }) => {
-                        this.favMovies.push(data)
+                        setTimeout(() => {
+                           this.activeDisplay = "none"
+                           this.favMovies.push(data)
+                        }, 2500)
                      })
                      .catch(err => console.log(err))
                })
